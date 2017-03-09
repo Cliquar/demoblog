@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Web Development Blog</h1>
+
+<div class="container-fluid content-box">
+ 
+  <div class="row">
+    <% @blog_entries.each do |entry| %>
+      <div class="col-xs-12  col-centered">
+        <h2><%= link_to entry.title, entry %></h2>
+        <h3>Author: <%= entry.author%>, Date: <%= entry.created_at %></h3>
+        <%= image_tag(entry.image_url, class: "img-responsive img-thumbnail")%>
+        <p><%= entry.article_text %></p>
+      </div>
+      <hr>
+    <% end %>
+  </div>
+</div>
+
+
+
+<br>
+
+<%= link_to 'New Blog Entry', new_blog_entry_path %>

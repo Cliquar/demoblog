@@ -8,9 +8,11 @@
     <% @blog_entries.each do |entry| %>
       <div class="col-xs-12  col-centered">
         <h2><%= link_to entry.title, entry %></h2>
-        <h3>Author: <%= entry.author%>, Date: <%= entry.created_at %></h3>
+        <h3>Posted by <%= entry.author%> on <%= entry.created_at %></h3>
         <%= image_tag(entry.image_url, class: "img-responsive img-thumbnail")%>
-        <p><%= entry.article_text %></p>
+        <p><%= entry.article_text.truncate_words(100) %></p>
+        <button type="button" class="btn btn-info"><%= link_to 'More', entry %></button>
+
       </div>
       <hr>
     <% end %>

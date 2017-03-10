@@ -3,12 +3,8 @@
   <head>
     <title>Demoblog</title>
     <%= csrf_meta_tags %>
-    <!-- Bootstrap sytlesheet-->
-    <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css' %>
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Amatic+SC|Karla|Archivo+Narrow|Open+Sans' %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     
   </head>
@@ -38,13 +34,14 @@
     </nav> -->
      <!-- Javascript -->
      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js' %>
+   
     
 
     <%= yield %>
     
     <footer>
-      Web Developer 2017
+      <hr>
+      <h6><span class='glyphicon glyphicon-copyright-mark'></span> Web Developer 2017</h6> 
     </footer>
    
   </body>

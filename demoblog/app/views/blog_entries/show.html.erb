@@ -1,29 +1,29 @@
 <p id="notice"><%= notice %></p>
+<div class="back">
+<span class='glyphicon glyphicon-triangle-left'></span> <%= link_to 'Back', blog_entries_path %>
+</div>
+<h1>Web Development Blog</h1>
+<div class="container-fluid content-box">
+ 
+  <div class="row">
+    <div class="col-xs-12  col-centered">
+        <h2><%= @blog_entry.title %></h2>
+        <h3>Posted by <%= @blog_entry.author%> on <%= @blog_entry.created_at %>  </h3><span class='glyphicon glyphicon-pencil'></span> <%= link_to 'Edit', edit_blog_entry_path(@blog_entry) %> | <span class='glyphicon glyphicon-minus-sign'></span> <%= link_to 'Delete', @blog_entry, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= image_tag(@blog_entry.image_url, class: "img-responsive img-thumbnail")%>
+        <p><%= @blog_entry.article_text %></p>
+      </div>
+      <hr>
+      <% number = @blog_entry.id + 1 %>
+      <% next_article = BlogEntry.find(number) if number <= BlogEntry.last.id %>
+      <% previous_article = BlogEntry.find(number - 2) if (number - 2) != 0 %>
+      <div class="back">
+        <%= link_to 'Previous Article', previous_article if @blog_entry != BlogEntry.first %> | 
+        <%= link_to 'Next Article', next_article if @blog_entry != BlogEntry.last%> 
+      </div>
+  </div>
+</div>
 
-<p>
-  <strong>Author:</strong>
-  <%= @blog_entry.author %>
-</p>
 
-<p>
-  <strong>Article text:</strong>
-  <%= @blog_entry.article_text %>
-</p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @blog_entry.title %>
-</p>
 
-<p>
-  <strong>Image url:</strong>
-  <%= @blog_entry.image_url %>
-</p>
 
-<p>
-  <strong>Created at:</strong>
-  <%= @blog_entry.created_at %>
-</p>
-
-<%= link_to 'Edit', edit_blog_entry_path(@blog_entry) %> |
-<%= link_to 'Back', blog_entries_path %>

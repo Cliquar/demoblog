@@ -19,6 +19,16 @@ h1 {
   box-shadow: 3px 3px 14px 0px rgba(163,163,163,1);
 }
 
+a:hover {
+  text-decoration: none;
+  background-color:transparent;
+
+}
+
+.back {
+  text-align: center;
+}
+
 /* Typography */
 
 h1 {
@@ -39,4 +49,6 @@ h3 {
 p {
   font-family: 'Archivo Narrow', serif;
   text-align: justify;
+  font-size: 1.5em;
+
 }
